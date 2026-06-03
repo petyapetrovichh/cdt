@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDT — 品牌手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@400;600;800&family=Archivo:wght@600;800;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#061210;          /* measured dominant site background */
+    --bg-2:#04100e;        /* deeper near-black */
+    --surface:#0c1d19;     /* card surface, slightly lifted */
+    --surface-2:#102621;   /* hover / nested surface */
+    --border:#16322b;      /* hairline borders */
+    --green:#4ade80;       /* PRIMARY — from confirmed icon */
+    --green-bright:#49df7e;/* site button green (near-identical) */
+    --green-deep:#1c5e3f;  /* darker green for fills/shadows */
+    --ink:#dbe4df;         /* measured off-white text */
+    --ink-dim:#8aa39a;     /* muted secondary text */
+    --ink-faint:#5a726a;   /* tertiary / captions */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(74,222,128,.07), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(74,222,128,.05), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Inter','Noto Sans SC',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:120px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* ---------- header ---------- */
+  header.hero{padding:80px 0 50px;border-bottom:1px solid var(--border)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+  h1.title{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(38px,6vw,68px);line-height:.98;letter-spacing:-.02em;margin:22px 0 14px}
+  h1.title em{color:var(--green);font-style:normal}
+  .sub{color:var(--ink-dim);max-width:620px;font-size:16px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);border:1px solid var(--border);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.01)}
+  .chip b{color:var(--green);font-weight:500}
+
+  /* ---------- section scaffold ---------- */
+  section{padding:62px 0;border-bottom:1px solid var(--border)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
+  .sec-num{font-family:'JetBrains Mono',monospace;color:var(--green);font-size:13px;letter-spacing:.1em}
+  h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.015em}
+  .sec-desc{color:var(--ink-dim);max-width:640px;margin-top:8px;font-size:15px}
+
+  /* ---------- THE ICON ---------- */
+  .icon-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+  @media(max-width:760px){.icon-grid{grid-template-columns:1fr}}
+  .panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px}
+  .panel.center{display:flex;align-items:center;justify-content:center;min-height:230px;position:relative;overflow:hidden}
+  .panel.center .gridbg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:26px 26px;opacity:.35;mask:radial-gradient(circle at center,black,transparent 75%)}
+  .spec{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-dim);line-height:2}
+  .spec b{color:var(--ink)}
+  .spec .g{color:var(--green)}
+  .swatch-dot{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:middle;margin-right:7px;border:1px solid rgba(255,255,255,.1)}
+
+  /* ---------- LOGO VARIANTS ---------- */
+  .variants{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:760px){.variants{grid-template-columns:1fr}}
+  .vcard{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.25s}
+  .vcard:hover{border-color:var(--green-deep);transform:translateY(-2px)}
+  .vstage{padding:42px 30px;display:flex;align-items:center;justify-content:center;min-height:150px;background:var(--bg-2)}
+  .vlabel{padding:14px 20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .vlabel .name{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);letter-spacing:.08em}
+  .vlabel .desc{font-size:12.5px;color:var(--ink-faint)}
+  .pick{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-faint);border:1px solid var(--border);border-radius:6px;padding:3px 8px}
+
+  /* wordmark base */
+  .wm{display:inline-flex;align-items:center;gap:14px}
+  .wm .ic{flex:none}
+  .wm .txt{display:flex;flex-direction:column;line-height:1}
+  .cdt{color:var(--ink)}
+  .cdt .accent{color:var(--green)}
+  .tagline{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--ink-dim);text-transform:uppercase;margin-top:6px}
+
+  /* type treatments for the 4 wordmark options */
+  .t-archivo{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-.01em}
+  .t-grotesk{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.01em}
+  .t-mono{font-family:'JetBrains Mono',monospace;font-weight:700;letter-spacing:.04em}
+  .t-sora{font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.02em}
+
+  /* ---------- COLOR ---------- */
+  .colors{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:760px){.colors{grid-template-columns:repeat(2,1fr)}}
+  .col{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface)}
+  .col .fill{height:96px}
+  .col .info{padding:13px 15px}
+  .col .nm{font-size:13px;font-weight:600;color:var(--ink)}
+  .col .hex{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);margin-top:3px;cursor:pointer}
+  .col .role{font-size:11.5px;color:var(--ink-faint);margin-top:7px}
+
+  /* ---------- TYPE SCALE ---------- */
+  .typeblock{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 30px;margin-bottom:16px}
+  .typeblock .role{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+  .typeblock .specline{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint);margin-bottom:16px}
+  .samp-display{font-family:'Archivo',sans-serif;font-weight:900;font-size:40px;letter-spacing:-.02em;line-height:1.05}
+  .samp-head{font-family:'Sora',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.015em}
+  .samp-body{font-family:'Inter',sans-serif;font-size:16px;color:var(--ink-dim);max-width:640px}
+  .samp-mono{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--green)}
+
+  /* ---------- USAGE / DO DONT ---------- */
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:760px){.dd{grid-template-columns:1fr}}
+  .dd .box{border:1px solid var(--border);border-radius:16px;padding:24px;background:var(--surface)}
+  .dd .box.do{border-color:rgba(74,222,128,.3)}
+  .dd .box.dont{border-color:rgba(248,113,113,.25)}
+  .dd h3{font-family:'Sora',sans-serif;font-size:15px;display:flex;align-items:center;gap:9px;margin-bottom:14px}
+  .dd .do h3{color:var(--green)}
+  .dd .dont h3{color:#f87171}
+  .dd ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .dd li{font-size:14px;color:var(--ink-dim);padding-left:20px;position:relative}
+  .dd .do li::before{content:"+";position:absolute;left:0;color:var(--green);font-weight:700}
+  .dd .dont li::before{content:"\00d7";position:absolute;left:0;color:#f87171;font-weight:700}
+
+  /* misuse mini demos */
+  .misuse{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+  @media(max-width:760px){.misuse{grid-template-columns:repeat(2,1fr)}}
+  .mis{border:1px solid var(--border);border-radius:12px;background:var(--bg-2);aspect-ratio:1.4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .mis .x{position:absolute;top:8px;right:8px;color:#f87171;font-family:'JetBrains Mono',monospace;font-size:13px}
+  .mis .cap{position:absolute;bottom:8px;left:10px;font-size:10.5px;color:var(--ink-faint)}
+
+  /* ---------- clearspace ---------- */
+  .clear-demo{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:46px;display:flex;align-items:center;justify-content:center;position:relative}
+  .clear-box{position:relative;padding:34px;border:1px dashed rgba(74,222,128,.4)}
+  .clear-box::after{content:"留白 = 图标高度 (1×)";position:absolute;bottom:-26px;left:0;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-faint)}
+
+  /* social avatar demos */
+  .avatars{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .av{width:96px;height:96px;border-radius:24px;background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+  .av.circle{border-radius:50%}
+  .av-cap{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-faint);text-align:center;margin-top:8px}
+  .av-wrap{display:flex;flex-direction:column;align-items:center}
+
+  footer{padding:60px 0 0;color:var(--ink-faint);font-size:13px;font-family:'JetBrains Mono',monospace}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--green);color:#04100e;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;padding:10px 18px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .note{font-size:12.5px;color:var(--ink-faint);margin-top:14px;font-style:italic}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">品牌手册 · v0.1 · 预热版本</div>
+    <h1 class="title">CDT <em>—</em> 碳数据通证<br>品牌系统</h1>
+    <p class="sub">Logo、色彩与字体的唯一权威来源。基于唯一已确认的素材——图标——以及从 cdt.network 中精确测量的配色构建。所有元素均源自一条在近黑绿底上向上攀升的减排曲线。</p>
+    <div class="meta-row">
+      <div class="chip">主色 <b>#4ade80</b></div>
+      <div class="chip">背景 <b>#061210</b></div>
+      <div class="chip">账号 <b>@carbondata</b></div>
+      <div class="chip">域名 <b>carbondata.net</b></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 ICON ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><div><h2>图标</h2><p class="sec-desc">唯一已确认的素材。一条减排曲线从圆角容器中向上突破，终止于一个节点——"每减排一吨，曲线就向上弯曲一分"。所有其他素材均围绕它构建。</p></div></div>
+    <div class="icon-grid">
+      <div class="panel center">
+        <div class="gridbg"></div>
+        <svg width="180" height="180" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="position:relative;filter:drop-shadow(0 0 18px rgba(74,222,128,.35))">
+          <rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/>
+          <path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="22" cy="9" r="2.2" fill="#4ade80"/>
+        </svg>
+      </div>
+      <div class="panel">
+        <div class="spec">
+          <div>viewBox &nbsp;<b>0 0 32 32</b></div>
+          <div>容器 &nbsp;<b>rx 6 · 描边 1.75</b></div>
+          <div>曲线 &nbsp;<b>Q 贝塞尔 · 描边 2 · 圆角端点</b></div>
+          <div>节点 &nbsp;<b>r 2.2 · 实心填充</b></div>
+          <div style="margin-top:14px"><span class="swatch-dot" style="background:#4ade80"></span><span class="g">#4ade80</span> &nbsp;单色构成</div>
+          <div class="note" style="font-style:normal;color:var(--ink-dim)">描边粗细按比例缩放。切勿重新放置节点或翻转曲线方向——向上的走势即是其含义所在。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 WORDMARK OPTIONS ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><div><h2>文字标识 — 请选择方向</h2><p class="sec-desc">"CDT" 文字标识的四种字体处理方案，图标固定于左侧。请选定一种作为标准方案——告诉我编号，我会将其锁定到所有素材中，并据此构建 Figma 文件。</p></div></div>
+    <div class="variants">
+
+      <!-- A: Archivo Black -->
+      <div class="vcard">
+        <div class="vstage">
+          <span class="wm">
+            <svg class="ic" width="46" height="46" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+            <span class="cdt t-archivo" style="font-size:40px">CDT</span>
+          </span>
+        </div>
+        <div class="vlabel"><div><div class="name">方案 A</div><div class="desc">Archivo Black — 粗体怪诞体，最接近 Roboto Black</div></div><span class="pick">A</span></div>
+      </div>
+
+      <!-- B: Space Grotesk -->
+      <div class="vcard">
+        <div class="vstage">
+          <span class="wm">
+            <svg class="ic" width="46" height="46" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+            <span class="cdt t-grotesk" style="font-size:40px">CDT</span>
+          </span>
+        </div>
+        <div class="vlabel"><div><div class="name">方案 B</div><div class="desc">Space Grotesk — 几何感、现代，与官网一致</div></div><span class="pick">B</span></div>
+      </div>
+
+      <!-- C: JetBrains Mono -->
+      <div class="vcard">
+        <div class="vstage">
+          <span class="wm">
+            <svg class="ic" width="46" height="46" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+            <span class="cdt t-mono" style="font-size:38px">CDT</span>
+          </span>
+        </div>
+        <div class="vlabel"><div><div class="name">方案 C</div><div class="desc">JetBrains Mono — 终端/加密风格，与演示文稿一致</div></div><span class="pick">C</span></div>
+      </div>
+
+      <!-- D: Sora -->
+      <div class="vcard">
+        <div class="vstage">
+          <span class="wm">
+            <svg class="ic" width="46" height="46" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+            <span class="cdt t-sora" style="font-size:40px">CDT</span>
+          </span>
+        </div>
+        <div class="vlabel"><div><div class="name">方案 D</div><div class="desc">Sora — 柔和几何体，精致金融科技感</div></div><span class="pick">D</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 LOCKUPS ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><div><h2>组合标识 — 含/不含标语</h2><p class="sec-desc">两种官方构成方案，此处以方案 A（Archivo）展示。一旦你选定文字标识方向，它们将以该字体重新生成。横版用于页眉/头部资料；竖版用于方形头像。</p></div></div>
+
+    <div class="variants">
+      <!-- horizontal no tagline -->
+      <div class="vcard">
+        <div class="vstage">
+          <span class="wm">
+            <svg class="ic" width="48" height="48" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+            <span class="cdt t-archivo" style="font-size:42px">CDT</span>
+          </span>
+        </div>
+        <div class="vlabel"><div><div class="name">组合 1</div><div class="desc">横版 · 图标 + CDT</div></div></div>
+      </div>
+
+      <!-- horizontal with tagline -->
+      <div class="vcard">
+        <div class="vstage">
+          <span class="wm">
+            <svg class="ic" width="50" height="50" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+            <span class="txt">
+              <span class="cdt t-archivo" style="font-size:34px">CDT</span>
+              <span class="tagline">Carbon Data Token</span>
+            </span>
+          </span>
+        </div>
+        <div class="vlabel"><div><div class="name">组合 2</div><div class="desc">横版 · 图标 + CDT + 标语</div></div></div>
+      </div>
+    </div>
+
+    <div class="variants" style="margin-top:20px">
+      <!-- stacked no tagline -->
+      <div class="vcard">
+        <div class="vstage" style="flex-direction:column;gap:14px">
+          <svg width="58" height="58" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+          <span class="cdt t-archivo" style="font-size:30px">CDT</span>
+        </div>
+        <div class="vlabel"><div><div class="name">组合 3</div><div class="desc">竖版 · 用于方形 / 居中场景</div></div></div>
+      </div>
+
+      <!-- stacked with tagline -->
+      <div class="vcard">
+        <div class="vstage" style="flex-direction:column;gap:12px">
+          <svg width="58" height="58" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+          <span class="txt" style="align-items:center">
+            <span class="cdt t-archivo" style="font-size:26px">CDT</span>
+            <span class="tagline" style="text-align:center">Carbon Data Token</span>
+          </span>
+        </div>
+        <div class="vlabel"><div><div class="name">组合 4</div><div class="desc">竖版 · 含标语</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 SOCIAL AVATARS ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><div><h2>社交头像</h2><p class="sec-desc">头像尺寸很小——仅使用图标，切勿使用完整组合标识。LinkedIn/X/YouTube 使用绿黑圆角方形；同一图标可干净地裁切为圆形。Telegram 显示为圆形。</p></div></div>
+    <div class="avatars">
+      <div class="av-wrap"><div class="av"><svg width="52" height="52" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg></div><div class="av-cap">方形</div></div>
+      <div class="av-wrap"><div class="av circle"><svg width="52" height="52" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg></div><div class="av-cap">圆形 (TG)</div></div>
+      <div class="av-wrap"><div class="av" style="background:var(--green)"><svg width="52" height="52" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#061210" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#061210" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#061210"/></svg></div><div class="av-cap">反色</div></div>
+      <div class="av-wrap"><div class="av circle" style="background:var(--green)"><svg width="52" height="52" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#061210" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#061210" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#061210"/></svg></div><div class="av-cap">反色圆形</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 COLOR ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><div><h2>色彩系统</h2><p class="sec-desc">直接从已确认的图标和 cdt.network 测量得出。在近黑绿底上使用单一主导的绿色点缀——绝不采用"均匀分布"的配色。点击任意色值即可复制。</p></div></div>
+    <div class="colors">
+      <div class="col"><div class="fill" style="background:#4ade80"></div><div class="info"><div class="nm">主色 绿</div><div class="hex" data-hex="#4ade80">#4ade80</div><div class="role">点缀、Logo、高亮、单个主视觉词。源自图标。</div></div></div>
+      <div class="col"><div class="fill" style="background:#061210"></div><div class="info"><div class="nm">背景</div><div class="hex" data-hex="#061210">#061210</div><div class="role">主导画布。从官网测量的背景色。</div></div></div>
+      <div class="col"><div class="fill" style="background:#0c1d19;border-bottom:1px solid #16322b"></div><div class="info"><div class="nm">表面</div><div class="hex" data-hex="#0c1d19">#0c1d19</div><div class="role">卡片、面板、悬浮区块。</div></div></div>
+      <div class="col"><div class="fill" style="background:#16322b"></div><div class="info"><div class="nm">边框</div><div class="hex" data-hex="#16322b">#16322b</div><div class="role">细线分隔与描边。</div></div></div>
+      <div class="col"><div class="fill" style="background:#dbe4df"></div><div class="info"><div class="nm">文字色</div><div class="hex" data-hex="#dbe4df">#dbe4df</div><div class="role">主文字。柔和的米白色，绝非纯白 #fff。</div></div></div>
+      <div class="col"><div class="fill" style="background:#8aa39a"></div><div class="info"><div class="nm">次级文字</div><div class="hex" data-hex="#8aa39a">#8aa39a</div><div class="role">次要文字、辅助文案。</div></div></div>
+      <div class="col"><div class="fill" style="background:#1c5e3f"></div><div class="info"><div class="nm">深绿</div><div class="hex" data-hex="#1c5e3f">#1c5e3f</div><div class="role">填充、悬停状态、细微阴影。</div></div></div>
+      <div class="col"><div class="fill" style="background:#f87171"></div><div class="info"><div class="nm">信号红</div><div class="hex" data-hex="#f87171">#f87171</div><div class="role">仅用于"比特币 / 燃烧"对比。绝不作装饰用途。</div></div></div>
+    </div>
+    <p class="note">比例参考：约 70% 背景 · 约 20% 表面/文字 · 约 10% 绿色。绿色因稀有而引人注目。红色仅在将 CDT 与"燃烧能源制造稀缺性"对比时出现（即"比特币的反面"叙事）——其他场合一律不用。</p>
+  </div>
+</section>
+
+<!-- ================= 06 TYPOGRAPHY ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><div><h2>字体系统</h2><p class="sec-desc">三种角色体系。展示体用于海报与标题，精致几何体用于副标题，等宽体用于数据/技术标签——呼应演示文稿的终端美学。（正文以 Inter 展示；最终正文字体将跟随你的文字标识选择。）</p></div></div>
+
+    <div class="typeblock">
+      <div class="role">展示体 — 海报 / 主视觉</div>
+      <div class="specline">Archivo · 800–900 · letter-spacing −2%</div>
+      <div class="samp-display">让每一吨减排的碳<br>转化为<span style="color:var(--green)">流通的财富</span></div>
+    </div>
+    <div class="typeblock">
+      <div class="role">标题体 — 副标题</div>
+      <div class="specline">Sora · 800 · letter-spacing −1.5%</div>
+      <div class="samp-head">比特币的反面。</div>
+    </div>
+    <div class="typeblock">
+      <div class="role">正文 — 说明文字 / 帖子</div>
+      <div class="specline">Inter · 400–500</div>
+      <div class="samp-body">CDT 是叠加在传统碳市场之上的共识激励层——一种以减排为锚的资产，不替代现有认证，只在其之上增加一层全球性奖励。</div>
+    </div>
+    <div class="typeblock">
+      <div class="role">等宽体 — 数据 / 标签 / 账号</div>
+      <div class="specline">JetBrains Mono · 400–700 · letter-spacing +4%</div>
+      <div class="samp-mono">@carbondata · cdt.network · 21,000,000 hard cap</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 USAGE ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">07</span><div><h2>使用规范</h2><p class="sec-desc">这些准则确保每一张海报、头像和动态视频都鲜明无误地属于 CDT。</p></div></div>
+    <div class="dd">
+      <div class="box do">
+        <h3>◆ 应当</h3>
+        <ul>
+          <li>图标保持单色：深底绿图，或绿底深图。</li>
+          <li>四周保留等于图标高度的留白空间。</li>
+          <li>曲线始终从左向右上升——它承载着核心含义。</li>
+          <li>克制使用绿色：每个版面只设一处点缀焦点。</li>
+          <li>展示体 + 等宽体搭配，营造"技术感 + 力量感"的标志性气质。</li>
+        </ul>
+      </div>
+      <div class="box dont">
+        <h3>✕ 禁止</h3>
+        <ul>
+          <li>不要改变图标颜色（不用渐变、不用多色、不用紫色）。</li>
+          <li>不要拉伸、旋转或翻转曲线方向。</li>
+          <li>不要在杂乱照片上直接放置 Logo，需加深色蒙层。</li>
+          <li>不要使用纯白 #fff 或纯黑 #000。</li>
+          <li>不要将完整组合标识用作小头像——仅用图标。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="misuse">
+      <div class="mis"><span class="x">✕</span><svg width="40" height="40" viewBox="0 0 32 32" style="transform:scaleX(-1)"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg><span class="cap">翻转曲线</span></div>
+      <div class="mis"><span class="x">✕</span><svg width="40" height="40" viewBox="0 0 32 32"><defs><linearGradient id="bad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a855f7"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="url(#bad)" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="url(#bad)" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="url(#bad)"/></svg><span class="cap">渐变改色</span></div>
+      <div class="mis"><span class="x">✕</span><svg width="56" height="32" viewBox="0 0 32 32" preserveAspectRatio="none"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg><span class="cap">拉伸变形</span></div>
+      <div class="mis" style="background:#fff"><span class="x">✕</span><svg width="40" height="40" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg><span class="cap" style="color:#999">白底低对比</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 08 CLEARSPACE ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">08</span><div><h2>留白与最小尺寸</h2><p class="sec-desc">保护标识。数字场景图标最小尺寸 24px。切勿拥挤排布。</p></div></div>
+    <div class="clear-demo">
+      <div class="clear-box">
+        <span class="wm">
+          <svg class="ic" width="44" height="44" viewBox="0 0 32 32"><rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="#4ade80" stroke-width="1.75"/><path d="M 8 22 Q 14 18 22 9" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="9" r="2.2" fill="#4ade80"/></svg>
+          <span class="cdt t-archivo" style="font-size:38px">CDT</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    CDT 品牌手册 · v0.1 · 基于已确认图标 + 测量自 cdt.network 的配色构建<br>
+    选定一个文字标识方案 (A/B/C/D) 与组合标识后，即可锁定并生成 Figma 文件。
+  </div>
+</footer>
+
+<div class="toast" id="toast">已复制</div>
+
+<script>
+  document.querySelectorAll('.hex').forEach(function(el){
+    el.addEventListener('click',function(){
+      var h=el.getAttribute('data-hex');
+      navigator.clipboard&&navigator.clipboard.writeText(h);
+      var t=document.getElementById('toast');
+      t.textContent=h+' 已复制';t.classList.add('show');
+      clearTimeout(window._tt);window._tt=setTimeout(function(){t.classList.remove('show')},1200);
+    });
+  });
+</script>
+</body>
+</html>
